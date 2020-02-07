@@ -1,7 +1,7 @@
-<h1>Authors</h1>
+<h1>An Author</h1>
 <br />
 <div class="container">
-    <div *ngFor="let author of authors.data; trackBy: authors.trackBy">
+    <div>
         <div class="card author">
             <div class="card-content">
                 <div class="media">
@@ -11,18 +11,18 @@
                         </figure>
                     </div>
                     <div class="media-content">
-                        <p class="title is-4">{{ author.attributes.name }} ({{ author.id }})</p>
+                        <p class="title is-4">{{ author.attributes.name }} ({{ id }})</p>
                         <p class="subtitle is-6">{{ author.attributes.date_of_birth | date }} - {{ author.attributes.date_of_death | date }} </p>
                     </div>
                 </div>
 
-                <!-- <div class="content">
+                <div class="content">
                     <div class="list is-hoverable">
                         <a class="list-item" *ngFor="let book of author.relationships.books.data">
                             Featured
                         </a>
                     </div>
-                </div> -->
+                </div>
                 <a class="button is-primary" [routerLink]="['author', author.id]">See details</a>
             </div>
         </div>

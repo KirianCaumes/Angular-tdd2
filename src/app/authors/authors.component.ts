@@ -6,7 +6,7 @@ import { AuthorsService, Author } from './../authors-service.service';
     selector: 'demo-authors',
     templateUrl: './authors.component.html'
 })
-export class AuthorsComponent implements OnInit{
+export class AuthorsComponent implements OnInit {
     public authors: DocumentCollection<Author>;
 
     public constructor(private authorsService: AuthorsService) {
@@ -15,9 +15,12 @@ export class AuthorsComponent implements OnInit{
     ngOnInit() {
         this.authorsService
             .all({
-                // include: ['books', 'photos'],
+                include: ['books']
             })
-            .subscribe(authors => (this.authors = authors));
+            .subscribe((authors: DocumentCollection<Author>) => {
+                this.authors = authors
+                console.log(authors)
+            });
 
     }
 

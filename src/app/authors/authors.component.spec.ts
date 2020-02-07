@@ -5,14 +5,14 @@ import { AuthorsService, Author } from '../authors-service.service';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
 import { By } from '@angular/platform-browser';
 
-import Pretender from 'pretender';
+// import Pretender from 'pretender';
 
-let data = JSON.stringify(require('../../../e2e/fixture/authors.json'))
-const server = new Pretender(function () {
-    this.get('//jsonapiplayground.reyesoft.com/v2/authors', (request: any) => {
-        return [200, { "Content-Type": "application/json" }, data]
-    });
-});
+// let data = JSON.stringify(require('../../../e2e/fixture/authors.json'))
+// const server = new Pretender(function () {
+//     this.get('//jsonapiplayground.reyesoft.com/v2/authors', (request: any) => {
+//         return [200, { "Content-Type": "application/json" }, data]
+//     });
+// });
 describe('AuthorsComponent', () => {
     let component: AuthorsComponent;
     let fixture: ComponentFixture<AuthorsComponent>;

@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
-import { AuthorsService } from './authors-service.service';
+import { AuthorsService, Author } from './authors-service.service';
+import { AuthorComponent } from './author/author.component';
+import { BooksService } from './books.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { AuthorsService } from './authors-service.service';
     })
   ],
   providers: [
-    AuthorsService
+    AuthorsService,
+    BooksService
   ],
   bootstrap: [AppComponent]
 })
