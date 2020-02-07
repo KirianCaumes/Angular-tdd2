@@ -1,6 +1,7 @@
-<h1>Authors</h1>
-<br />
 <div class="container">
+    <br/>
+    <h1 class="title">Authors</h1>
+    <br />
     <div *ngFor="let author of authors.data; trackBy: authors.trackBy">
         <div class="card author">
             <div class="card-content">
@@ -12,7 +13,8 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{ author.attributes.name }} ({{ author.id }})</p>
-                        <p class="subtitle is-6">{{ author.attributes.date_of_birth | date }} - {{ author.attributes.date_of_death | date }} </p>
+                        <p class="subtitle is-6">{{ author.attributes.date_of_birth | date }} -
+                            {{ author.attributes.date_of_death | date }} </p>
                     </div>
                 </div>
 

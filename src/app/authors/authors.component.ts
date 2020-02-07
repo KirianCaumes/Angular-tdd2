@@ -15,7 +15,7 @@ export class AuthorsComponent implements OnInit {
     ngOnInit() {
         this.authorsService
             .all({
-                include: ['books']
+                // include: ['books']
             })
             .subscribe((authors: DocumentCollection<Author>) => {
                 this.authors = authors
