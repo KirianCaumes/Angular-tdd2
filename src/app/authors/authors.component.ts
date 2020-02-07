@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentCollection } from 'ngx-jsonapi';
 import { AuthorsService, Author } from './../authors-service.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'demo-authors',
@@ -9,7 +10,7 @@ import { AuthorsService, Author } from './../authors-service.service';
 export class AuthorsComponent implements OnInit {
     public authors: DocumentCollection<Author>;
 
-    public constructor(private authorsService: AuthorsService) {
+    public constructor(private authorsService: AuthorsService, public router:Router) {
     }
 
     ngOnInit() {
