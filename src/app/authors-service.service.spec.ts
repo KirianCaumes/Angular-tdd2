@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AuthorsService } from './authors-service.service';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
+import { BooksService } from './books.service';
 
 describe('AuthorsServiceService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));
@@ -14,7 +15,8 @@ describe('AuthorsServiceService', () => {
                 }),
             ],
             providers: [
-                AuthorsService
+                AuthorsService,
+                BooksService
             ]
         }).compileComponents();
     });

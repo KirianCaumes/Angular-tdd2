@@ -5,14 +5,15 @@ import { AuthorsService, Author } from '../authors-service.service';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
 import { By } from '@angular/platform-browser';
 
-// import Pretender from 'pretender';
+import Pretender from 'pretender';
+import { RouterTestingModule } from '@angular/router/testing';
 
-// let data = JSON.stringify(require('../../../e2e/fixture/authors.json'))
-// const server = new Pretender(function () {
-//     this.get('//jsonapiplayground.reyesoft.com/v2/authors', (request: any) => {
-//         return [200, { "Content-Type": "application/json" }, data]
-//     });
-// });
+let data = JSON.stringify(require('../../../e2e/fixture/authors.json'))
+const server = new Pretender(function () {
+    this.get('//jsonapiplayground.reyesoft.com/v2/authors', (request: any) => {
+        return [200, { "Content-Type": "application/json" }, data]
+    });
+});
 describe('AuthorsComponent', () => {
     let component: AuthorsComponent;
     let fixture: ComponentFixture<AuthorsComponent>;
@@ -28,6 +29,7 @@ describe('AuthorsComponent', () => {
                 Author
             ],
             imports: [
+                RouterTestingModule ,
                 NgxJsonapiModule.forRoot({
                     url: '//jsonapiplayground.reyesoft.com/v2/'
                 })
@@ -56,15 +58,7 @@ describe('AuthorsComponent', () => {
         expect(titleElements[0].nativeElement.innerHTML).toBe('Authors');
     });
 
-    //   it('should get the movies from the service', () => {
-    //     fixture.detectChanges();
-    //     expect(authorService.all).toHaveBeenCalled();
-    //   });
     it('show all the authors', async () => {
-        // const fixture = TestBed.createComponent(AuthorsComponent);
-        // const component = fixture.debugElement.componentInstance;
-        // component.getData();
-
         fixture.detectChanges();
 
         await new Promise((resolve, reject) => {
