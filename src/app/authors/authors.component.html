@@ -1,0 +1,7 @@
+<h1>Authors</h1>
+
+<p *ngFor="let author of authors.data; trackBy: authors.trackBy" class="author">
+    id: {{ author.id }} <br />
+    name: {{ author.attributes.name }} <br />
+    birth date: {{ author.attributes.date_of_birth | date }}
+</p>
